@@ -33,4 +33,4 @@ build/
 .vscode/
 
 ### Local ####
-application.yml
+src/main/java/me/lucasgusmao/berrytuneapi/config/CloudinaryConfig.java
