@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Document(collection = "albums")
 @Data
 @AllArgsConstructor
@@ -23,4 +26,7 @@ public class Album {
     private String description;
     private String bgColour;
     private String imageUrl;
+    private LocalDateTime releaseDate;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 }

@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import java.lang.Object;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -28,11 +30,18 @@ public class AlbumService {
                 .upload(request.getImageFile().getBytes(),
                         ObjectUtils.asMap("resource_type", "auto"));
 
+        LocalDateTime releaseDate = LocalDateTime.now();
+        LocalDateTime createdAt = LocalDateTime.now();
+        LocalDateTime updatedAt = LocalDateTime.now();
+
         Album newAlbum = Album.builder()
                 .name(request.getName())
                 .description(request.getDescription())
                 .bgColour(request.getBgColour())
                 .imageUrl((String) imageUploadResult.get("secure_url").toString())
+                .releaseDate(releaseDate)
+                .createdAt(createdAt)
+                .updatedAt(updatedAt)
                 .build();
 
         return albumRepository.save(newAlbum);
