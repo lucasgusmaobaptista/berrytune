@@ -25,7 +25,8 @@ public class AlbumController {
             ObjectMapper objectMapper = new ObjectMapper();
             AlbumRequest albumRequest = objectMapper.readValue(request, AlbumRequest.class);
             albumRequest.setImageFile(file);
-            return ResponseEntity.status(HttpStatus.CREATED).body(albumService.addAlbum(albumRequest));
+            var album = albumService.addAlbum(albumRequest);
+            return ResponseEntity.status(HttpStatus.CREATED).body(album);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
