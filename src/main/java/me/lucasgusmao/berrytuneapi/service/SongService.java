@@ -48,7 +48,9 @@ public class SongService {
         return songRepository.save(newSong);
     }
 
+    public void teste() {
 
+    }
 
     private String formatDuration(Double durationInSeconds) {
         if (durationInSeconds == null) {
