@@ -30,7 +30,7 @@ public class SongController {
 
             return ResponseEntity.status(HttpStatus.CREATED).body(song);
         } catch (Exception e) {
-
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
 }
