@@ -1,0 +1,14 @@
+# Configuração do projeto
+
+# Configuração do MongoDB (container Docker)
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/berrytune
+# Configuração para upload de arquivos
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+      enabled: true
+
