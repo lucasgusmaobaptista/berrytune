@@ -2,15 +2,13 @@ package me.lucasgusmao.berrytuneapi.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
+import me.lucasgusmao.berrytuneapi.dto.AlbumListResponse;
 import me.lucasgusmao.berrytuneapi.dto.AlbumRequest;
 import me.lucasgusmao.berrytuneapi.model.Album;
 import me.lucasgusmao.berrytuneapi.service.AlbumService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @RestController
@@ -32,4 +30,15 @@ public class AlbumController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
+    @GetMapping
+    public ResponseEntity<?> getAllAlbums() {
+        try {
+            return ResponseEntity.ok(albumService.getAllAlbums());
+        } catch (Exception e) {
+            return ResponseEntity.ok(new AlbumListResponse(false, null));
+        }
+    }
+
+
 }
