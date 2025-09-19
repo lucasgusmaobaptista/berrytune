@@ -3,7 +3,6 @@ package me.lucasgusmao.berrytuneapi.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import me.lucasgusmao.berrytuneapi.dto.SongRequest;
-import me.lucasgusmao.berrytuneapi.model.Song;
 import me.lucasgusmao.berrytuneapi.service.SongService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
