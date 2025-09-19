@@ -40,5 +40,18 @@ public class AlbumController {
         }
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteAlbum(@PathVariable String id) {
+        try {
+            Boolean status = albumService.deleteAlbum(id);
+            if(status) {
+                return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+            } else  {
+                return ResponseEntity.badRequest().build();
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }
+    }
 
 }
