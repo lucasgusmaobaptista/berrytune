@@ -26,7 +26,7 @@ public class AlbumService {
     public Album addAlbum(AlbumRequest request) throws IOException {
         Map<String, Object> imageUploadResult = cloudinary.uploader()
                 .upload(request.getImageFile().getBytes(),
-                ObjectUtils.asMap("resource_type", "auto"));
+                        ObjectUtils.asMap("resource_type", "auto"));
 
         Album newAlbum = Album.builder()
                 .name(request.getName())
@@ -44,7 +44,10 @@ public class AlbumService {
 
     public Boolean deleteAlbum(String id) {
         Album existingAlbum = albumRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Album não encontrado!"));
-
+                        .orElseThrow(() -> new RuntimeException("ID inválido!"));
         albumRepository.delete(existingAlbum);
+        return true;
+
+     
     }
+}
